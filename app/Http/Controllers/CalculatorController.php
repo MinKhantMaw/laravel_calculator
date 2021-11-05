@@ -14,7 +14,8 @@ class CalculatorController extends Controller
     public function calculate(Request $request)
     {
         $data = $this->getSumData($request);
-        $result = $this->calculateProcess($data);
+        $response = $this->calculateProcess($data);
+        return back()->with(['result' => $response]);
     }
     private function getSumData($request)
     {
@@ -39,6 +40,9 @@ class CalculatorController extends Controller
                 break;
             case 'division': $result=$data['num1'] / $data['num2'];
                 break;
+            default:$result ="errror";
+                break;
         }
+        return $result;
     }
 }

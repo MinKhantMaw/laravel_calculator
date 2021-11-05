@@ -42,6 +42,11 @@
                            <button type="submit"  class="btn btn-secondary" name="calculate" value="Calculate">Calculate</button>
                         </div>
                     </form>
+                    <div class="mt-3">
+                       @if (Session::has('result'))
+                            <h1 class="text-success">{{Session::get('result')}}</h1>
+                       @endif
+                    </div>
                    </div>
                </div>
             </div>
