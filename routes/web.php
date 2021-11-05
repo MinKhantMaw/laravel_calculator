@@ -14,5 +14,14 @@ use App\Http\Controllers\CalculatorController;
 |
 */
 
-Route::get('calculator','CalculatorController@index')->name('Calculator#index');
-Route::post('calculate','CalculatorController@calculate')->name('Calculator#calculate');
+Route::get('calculator', 'CalculatorController@index')->name('Calculator#index');
+Route::post('calculate', 'CalculatorController@calculate')->name('Calculator#calculate');
+
+//route group
+
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'] , function () {
+    Route::get("one", 'AdminController@one');
+    Route::get("two", 'AdminController@two');
+    Route::get("three",'AdminController@three');
+});
