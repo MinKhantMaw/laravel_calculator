@@ -25,3 +25,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'] , function () {
     Route::get("two", 'AdminController@two');
     Route::get("three",'AdminController@three');
 });
+
+Route::group(['prefix' => 'customer'],function () {
+    Route::get('register','CustomerController@register')->name('Customer#register');
+    Route::post('create','CustomerController@create')->name('Customer#create');
+});
