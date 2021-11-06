@@ -30,4 +30,5 @@ Route::group(['prefix' => 'customer'],function () {
     Route::get('register','CustomerController@register')->name('Customer#register');
     Route::post('create','CustomerController@create')->name('Customer#create');
     Route::get('list','CustomerController@list')->name('Customer#list');
+    Route::get('seemore/{id}','CustomerController@seemore')->name('Customer#seemore');
 });

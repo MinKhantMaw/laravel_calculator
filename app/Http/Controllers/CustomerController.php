@@ -21,6 +21,11 @@ class CustomerController extends Controller
         $data=Customer::get();
         return view('customer.list')->with(['customer'=>$data]);
     }
+    public function seemore($id){
+        $data=Customer::where('customer_id',$id)->first();
+        return view('customer.seemore')->with(['customer'=>$data]);
+    }
+
     private function getCustomerData($request)
     {
         return [
