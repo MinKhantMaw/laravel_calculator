@@ -27,7 +27,7 @@
                                 <td>{{ $item->phone }}</td>
                                 <td>
                                     <a href="{{route('Customer#seemore',$item->customer_id)}}" class="btn btn-sm btn-primary">View</a>
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{route('Customer#edit',$item->customer_id)}}" class="btn btn-sm btn-warning">Edit</a>
                                     <a href="{{route("Customer#delete",$item->customer_id)}}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>

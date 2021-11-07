@@ -32,7 +32,11 @@ class CustomerController extends Controller
         Customer::where('customer_id', $id)->delete();
         return back()->with(['delete' => 'customer data deleted']);
     }
-
+    public function edit($id)
+    {
+        $data=Customer::where('customer_id', $id)->first();
+        return view('customer.edit')->with(['update' => $data]);
+    }
     private function getCustomerData($request)
     {
         return [
