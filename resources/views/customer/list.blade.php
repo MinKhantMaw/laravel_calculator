@@ -4,7 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
+                @if (Session::has('delete'))
+                        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                            {{Session::get('delete')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                        @endif
                 <table class="text-center table table-striped  table-hover mt-4">
                     <thead>
                         <th>id</th>
@@ -22,8 +27,8 @@
                                 <td>{{ $item->phone }}</td>
                                 <td>
                                     <a href="{{route('Customer#seemore',$item->customer_id)}}" class="btn btn-sm btn-primary">View</a>
-                                    <button class="btn btn-sm btn-primary">Edit</button>
-                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{route("Customer#delete",$item->customer_id)}}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

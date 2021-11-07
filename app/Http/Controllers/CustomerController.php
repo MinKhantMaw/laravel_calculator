@@ -13,17 +13,24 @@ class CustomerController extends Controller
     }
     public function create(Request $request)
     {
-       $data=$this->getCustomerData($request);
-       Customer::create($data);
-       return back()->with(['insertSuccess'=>'Customer Info Recorder']);
+        $data = $this->getCustomerData($request);
+        Customer::create($data);
+        return back()->with(['insertSuccess' => 'Customer Info Recorder']);
     }
-    public function list(){
-        $data=Customer::get();
-        return view('customer.list')->with(['customer'=>$data]);
+    public function list()
+    {
+        $data = Customer::get();
+        return view('customer.list')->with(['customer' => $data]);
     }
-    public function seemore($id){
-        $data=Customer::where('customer_id',$id)->first();
-        return view('customer.seemore')->with(['customer'=>$data]);
+    public function seemore($id)
+    {
+        $data = Customer::where('customer_id', $id)->first();
+        return view('customer.seemore')->with(['customer' => $data]);
+    }
+    public function delete($id)
+    {
+        Customer::where('customer_id', $id)->delete();
+        return back()->with(['delete' => 'customer data deleted']);
     }
 
     private function getCustomerData($request)
@@ -31,10 +38,10 @@ class CustomerController extends Controller
         return [
             'name' => $request->name,
             // 'email' => $request->email,
-            'address'=>$request->address,
+            'address' => $request->address,
             'gender' => $request->gender,
-            'date_of_birth'=>$request->date_of_birth,
-            'phone'=>$request->phone,
+            'date_of_birth' => $request->date_of_birth,
+            'phone' => $request->phone,
         ];
     }
 }
