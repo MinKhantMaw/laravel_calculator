@@ -37,6 +37,12 @@ class CustomerController extends Controller
         $data=Customer::where('customer_id', $id)->first();
         return view('customer.edit')->with(['update' => $data]);
     }
+    public function update($id,Request $request)
+    {
+        $updateData=$this->getCustomerData($request);
+        Customer::where('customer_id', $id)->update($updateData);
+        return redirect()->route('Customer#list')->with(['updateData' => 'customer data updated']);
+    }
     private function getCustomerData($request)
     {
         return [

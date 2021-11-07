@@ -19,7 +19,7 @@ class CreateCustomersTable extends Migration
             // $table->string('email', '20');
             $table->longText('address');
             $table->boolean('gender');
-            $table->timestamp('date_of_birth');
+            $table->date('date_of_birth');
             $table->char('phone', '20');
             $table->timestamps();
         });

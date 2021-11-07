@@ -17,9 +17,20 @@
                             <label for="">Address::{{$customer->address}}</label>
                         </div>
                         <div class="">
-                            <label for="">Gender::{{$customer->gender}}</label>
+                            <label for="">
+                                Gender:: @if ($customer->gender == 1)
+                                Male
+                                @elseif ($customer->gender==2)
+                                Female
+                                @elseif ($customer->gender==0)
+                                Other
+                                @endif
+                            </label>
                         </div>
                         <div class="">
+                            <label for="">DOB:: {{$customer->date_of_birth}}</label>
+                        </div>
+                        <div class=""> 
                             <label for="">Phone::{{$customer->phone}}</label>
                         </div>
                     </div>
